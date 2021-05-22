@@ -1,0 +1,21 @@
+{
+  "name": "create-solidity-sc",
+  "version": "0.1.0",
+  "scripts": {
+    "accounts": "hardhat accounts",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "dev": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.js"
+  },
+  "dependencies": {
+    "hardhat": "^2.3.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.2.0"
+  }
+}
