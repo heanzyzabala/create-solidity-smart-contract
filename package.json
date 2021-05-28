@@ -1,6 +1,6 @@
 {
   "name": "@hzabala/create-solidity-smart-contract",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bin": {
     "@hzabala/create-solidity-smart-contract": "./bin/cli.js"
   },

@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const utl = require('util');
 const fs = require('fs');
 const path = require('path');
@@ -32,6 +34,7 @@ async function setup() {
 					projectName,
 				)} already exists, try using a new directory name`,
 			);
+			log();
 		} else {
 			error(err);
 		}
