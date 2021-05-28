@@ -3,5 +3,25 @@
   "version": "0.1.0",
   "bin": {
     "@hzabala/create-solidity-smart-contract": "./bin/cli.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heanzyzabala/create-solidity-smart-contract.git"
+  },
+  "keywords": [],
+  "author": "Heanzy Zabala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heanzyzabala/create-solidity-smart-contract/issues"
+  },
+  "homepage": "https://github.com/heanzyzabala/create-solidity-smart-contract/issues",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "ora": "^5.4.0"
   }
 }
