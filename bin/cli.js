@@ -16,7 +16,7 @@ async function setup() {
 		log('Please specify the project directory:');
 		log();
 		log('For Example:');
-		log(`  ${chalk.cyan('@hzabala/create-solidity-smart-contract')} ${chalk.green('app')}`);
+		log(`   ${chalk.cyan('create-solidity-smart-contract')} ${chalk.green('app')}`);
 		log();
 		process.exit(1);
 	}
@@ -32,7 +32,7 @@ async function setup() {
 			log(
 				`Project directory ${chalk.green(
 					projectName,
-				)} already exists, try using a new directory name`,
+				)} already exists, try using a new directory name.`,
 			);
 			log();
 		} else {
@@ -48,10 +48,10 @@ async function setup() {
 
 		const spinner = ora({
 			color: 'cyan',
-			spinner: 'dots',
+			spinner: 'dots2',
 		});
 
-		spinner.start('Cloning template from repository');
+		spinner.start('Cloning template from repository.');
 		process.chdir(rootDir);
 		await exec('git init');
 		await exec(
@@ -65,15 +65,11 @@ async function setup() {
 		await exec('mv .env.example .env');
 		await exec('rm -rf .git');
 		await exec('git init');
-		if (spinner.isSpinning) {
-			spinner.succeed();
-		}
+		spinner.succeed();
 
 		spinner.start('Installing dependencies. It might take a few seconds.');
 		await exec('npm install');
-		if (spinner.isSpinning) {
-			spinner.succeed();
-		}
+		spinner.succeed();
 
 		log();
 		log(`Done! Created ${projectName} at ${rootDir}`);
@@ -81,13 +77,16 @@ async function setup() {
 		log('  You can get started by typing:');
 		log();
 		log(`  ${chalk.cyan('cd')} ${projectName}`);
-		log(`  ${chalk.cyan('npm')} run ${chalk.cyan('dev')}`);
-		log();
-		log('  Open a new terminal, and inside the project, type:');
-		log();
 		log(`  ${chalk.cyan('npm')} run ${chalk.cyan('deploy')}`);
+
 		log();
-		log(`  This deploys the ${chalk.cyan('greeter.sol')} contract in your local node.`);
+		log(`  This deploys a ${chalk.cyan('greeter.sol')} contract to a local Ethereum network.`);
+		log();
+		log(
+			`  Visit ${chalk.green(
+				'https://github.com/heanzyzabala/create-solidity-smart-contract',
+			)} for more info.`,
+		);
 		log();
 	} catch (err) {
 		error(err);

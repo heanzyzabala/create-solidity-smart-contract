@@ -1,27 +1,35 @@
 {
   "name": "@hzabala/create-solidity-smart-contract",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "bin": {
     "@hzabala/create-solidity-smart-contract": "./bin/cli.js"
   },
   "files": [
-    "bin"
+    "bin",
+    "README.md"
   ],
-  "scripts": {
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heanzyzabala/create-solidity-smart-contract.git"
   },
-  "keywords": [],
   "author": "Heanzy Zabala",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/heanzyzabala/create-solidity-smart-contract/issues"
   },
-  "homepage": "https://github.com/heanzyzabala/create-solidity-smart-contract/issues",
+  "homepage": "https://github.com/heanzyzabala/create-solidity-smart-contract",
   "dependencies": {
     "chalk": "^4.1.1",
     "ora": "^5.4.0"
-  }
+  },
+  "keywords": [
+    "ethereum", 
+    "smart-contract", 
+    "blockchain", 
+    "solidity", 
+    "typechain", 
+    "hardhat", 
+    "dapps", 
+    "template"
+  ]
 }
