@@ -60,7 +60,7 @@ async function setup() {
 		await exec('git config core.sparsecheckout true');
 		await exec('echo "template" >> .git/info/sparse-checkout');
 		await exec('git pull --depth=1 origin master');
-		await exec('mv template/.env.example template/* .');
+		await exec('shopt -s dotglob; mv template/* .');
 		await exec('rm -r template');
 		await exec('mv .env.example .env');
 		await exec('rm -rf .git');
