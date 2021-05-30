@@ -15,18 +15,15 @@ task('accounts', 'Prints the list of accounts', async (args, hre) => {
 });
 
 const INFURA_API_KEY = process.env.INFURA_API_KEY || '';
-const DEPLOYMENT_MNEMONIC = process.env.DEPLOYMENT_MNEMONIC || '';
+const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || '';
 
 const config: HardhatUserConfig = {
 	solidity: '0.7.3',
 	defaultNetwork: 'hardhat',
 	networks: {
-		hardhat: {},
 		ropsten: {
 			url: `https://ropsten.infura.io/v3/${INFURA_API_KEY}`,
-			accounts: {
-				mnemonic: DEPLOYMENT_MNEMONIC,
-			},
+			accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
 		},
 	},
 };
