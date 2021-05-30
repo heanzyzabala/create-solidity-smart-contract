@@ -79,11 +79,11 @@ Infura is a service provider that hosts their own testnets and mainnet nodes and
 
 Register and create a project in Infura. After creating a new project, Infura will give you a `PROJECT ID`. Navigate your directory, and paste it as value for `INFURA_API_KEY` in `.env` file.
 ```bash
-INFURA_API_KEY=sample
-DEPLOYER_PRIVATE_KEY=sample
+INFURA_API_KEY=
+DEPLOYER_PRIVATE_KEY=0000000000000000000000000000000000000000000000000000000000000000
 ```
 
-Additionally, you also need an account for `DEPLOYER_PRIVATE_KEY`. It's simply a wallet that you'll use to deploy smart contracts in the testnet, you need it to be funded since deploying smart contracts requires gas fees.
+Additionally, you also need an account for `DEPLOYER_PRIVATE_KEY`.  It's simply a wallet that you'll use to deploy smart contracts in the testnet, you need it to be funded since deploying smart contracts requires gas fees. A dummy private key is currently set to suppress Hardhat config validation until you have an actual account.
 
 You can register an account in [MetaMask](https://metamask.io), set `Ropsten Test Network` as your network.
 Export your private key from MetaMask and paste it as value for `DEPLOYER_PRIVATE_KEY` in `.env`.
