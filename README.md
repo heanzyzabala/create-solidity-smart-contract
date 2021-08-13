@@ -23,7 +23,7 @@ npx @hzabala/create-solidity-smart-contract <projectName>
 Create a project using this command:
 
 ```bash
-create-express-api myapp
+create-solidity-smart-contract myapp
 ```
 
 ## Getting Started
@@ -40,12 +40,11 @@ Greeter deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 This deploys the sample [greeter.sol](https://github.com/heanzyzabala/create-solidity-smart-contract/blob/master/template/contracts/greeter.sol) smart contract to your local Ethereum network. 
 
-By default, if you deploy and you don't have a persistent node running, a temporary node is created that only lives for the duration of the deployment, meaning that any transactions created will be gone. 
-The same behavior applies when running tests.
+By default, running `npm run deploy` will only persist transactions temporarily. It will be purged after executing the command.
 
 ### Running a persistent node
 
-To run a persitent node, type:
+To persist transactions, you need to run a persitent node, type:
 ```bash
 npm run dev
 ```
@@ -56,7 +55,7 @@ npm run deploy -- --network localhost
 
 The `--network localhost` flag simply points the connection to the persistent node that you're running, rather than the default.
 
-So now you can persist and interact with the transactions created in your local node, which is useful if you're creating dApps and you want to test it locally.
+You can now persist and retrieve any transactions created in your local node which is useful if you're creating dApps and you want to test it locally.
 
 Read more here: [Hardhat - Getting Started](https://hardhat.org/getting-started/)
 
@@ -65,30 +64,28 @@ Read more here: [Hardhat - Getting Started](https://hardhat.org/getting-started/
 After developing and testing your smart contract, you can now deploy it to an Ethereum public testnet.
 
 A testnet is a production-like environment where you initially deploy your smart contracts before deploying them to the mainnet.
-In conventional software development, it's the same as the Staging and Production environment.
-
 Read more here: [Ethereum - Networks](https://ethereum.org/en/developers/docs/networks)
 
 ### Connecting to Ropsten Test Network
 
-Similar to running a local node, you need to run a testnet node in order to deploy smart contracts to it. 
-However, maintaining your own testnet node is not really worth it.
+Similar to running a local node, you would need to run a testnet node in order to deploy smart contracts to it. 
+However, maintaining your own testnet node is extensive and it's not really worth it.
 
 Fortunately, we have [Infura](https://infura.io). 
-Infura is a service provider that hosts their own testnets and mainnet nodes and provides API for developers for easy access.
+Infura is a service provider that maintains testnets and mainnet nodes for you. They'll just provide APIs for developers for access. 
 
-Register and create a project in Infura. After creating a new project, Infura will give you a `PROJECT ID`. Navigate your directory, and paste it as value for `INFURA_API_KEY` in `.env` file.
+Register and create a project in Infura. After creating a new project, Infura will give you a `PROJECT ID` (which is basically an API key). Navigate to your directory, and paste it as value for `INFURA_API_KEY` in the `.env` file.
 ```bash
 INFURA_API_KEY=
-DEPLOYER_PRIVATE_KEY=0000000000000000000000000000000000000000000000000000000000000000
+DEPLOYER_PRIVATE_KEY=
 ```
 
-Additionally, you also need an account for `DEPLOYER_PRIVATE_KEY`.  It's simply a wallet that you'll use to deploy smart contracts in the testnet, you need it to be funded since deploying smart contracts requires gas fees. A dummy private key is currently set to suppress Hardhat config validation until you have an actual account.
+Additionally, you also need an account to populate `DEPLOYER_PRIVATE_KEY`.  It's a wallet that you'll use to deploy smart contracts in the testnet, you need it to be funded with ETH since deploying smart contracts requires gas fees.
 
 You can register an account in [MetaMask](https://metamask.io), set `Ropsten Test Network` as your network.
 Export your private key from MetaMask and paste it as value for `DEPLOYER_PRIVATE_KEY` in `.env`.
 
-To fund your account, just visit ether faucets like: https://faucet.ropsten.be and paste your public address. It will send you ETH for free.
+To fund your account with ETH, just visit ether faucets like: https://faucet.ropsten.be and paste your public address. It will send you ETH for free.
 
 ### Deploying to Ropsten Test Network
 After everything is set, just type:
@@ -103,7 +100,7 @@ Greeter deployed to: 0xde6E94Da99EE84a90E85FFcE02c5baF2380D3248
 
 You can use the transaction hash to see the transaction in [Ropsten - Etherscan](https://ropsten.etherscan.io).
 
-The `--network ropsten` flag is configured in `hardhat.config.ts`. You can freely add or change any networks (e.g. kovan, rinkeby, goerli). But in this case, I choose ropsten since it's the closet representation of the mainnet.
+The `--network ropsten` flag is configured in `hardhat.config.ts`. You can freely add or change any network (e.g. kovan, rinkeby, goerli). But in this case, I choose ropsten since it's the closet representation of the mainnet.
 
 ```typescript
 const config: HardhatUserConfig = {
